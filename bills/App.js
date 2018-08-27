@@ -166,6 +166,10 @@ handleInputChange(name) {
 
   render() {
 console.log("In render");
+const itemarray = getitemArray();
+const textInputComponents = itemarray.map((type)=> <Text> {type} </Text>)
+const lastelement = itemarray[itemarray.length - 1];
+
     return (
       <View style={styles.container}>
         <Text>Price</Text>
@@ -178,22 +182,22 @@ console.log("In render");
          />
 <Text>{"\n"}</Text>
 <CheckBox
-  title='Prateek'
+  title='Akshay'
   checked={this.state.pracheck}
   onPress = { () => this.handleInputChange('pracheck') }
 />
 <CheckBox
-  title='Shreyas'
+  title='Manan'
   checked={this.state.shrcheck}
     onPress = { () => this.handleInputChange('shrcheck') }
 />
 <CheckBox
-  title='Vinay'
+  title='Maunil'
   checked={this.state.vincheck}
     onPress = { () => this.handleInputChange('vincheck') }
 />
 <CheckBox
-  title='Vivek'
+  title='Sachin'
   checked={this.state.vivcheck}
     onPress = { () => this.handleInputChange('vivcheck') }
 />
@@ -201,27 +205,30 @@ console.log("In render");
 <Text>{"\n"}</Text>
 
          <Button
-  title="Add"
+  title="Add Value"
   onPress={this.addVal}
   color="#841584"
 />
 
+
+<Text>{"\n"}</Text>
+<Text>Akshay Bapat: {this.state.pratdetails.toFixed(2)}</Text><Text>{"\n"}</Text>
+
+<Text>Manan Boranaman: {this.state.shrdetails.toFixed(2)}</Text><Text>{"\n"}</Text>
+
+<Text>Maunil Shah: {this.state.vindetails.toFixed(2)}</Text><Text>{"\n"}</Text>
+
+<Text>Sachin Sreedhara: {this.state.vivdetails.toFixed(2)}</Text>
+
+<Text>{"\n"}</Text>
+<Text> LAST ADDED VALUE : {lastelement}</Text>
 <Text>{"\n"}</Text>
 
 <Button
-title="Remove"
+title="Remove Last added Value"
 onPress={this.remVal}
 color="#841584"
 />
-
-<Text>{"\n"}</Text>
-<Text>Prateek: {this.state.pratdetails}</Text><Text>{"\n"}</Text>
-
-<Text>Shreyas: {this.state.shrdetails}</Text><Text>{"\n"}</Text>
-
-<Text>Vinay: {this.state.vindetails}</Text><Text>{"\n"}</Text>
-
-<Text>Vivek: {this.state.vivdetails}</Text>
 
       </View>
     );
